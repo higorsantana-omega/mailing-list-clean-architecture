@@ -28,4 +28,11 @@ describe('In memory user repository', () => {
     const returnedUsers = await sut.findAllUsers()
     expect(returnedUsers).toHaveLength(2)
   })
+
+  test('should return true if user exists', async () => {
+    const users: UserData[] = [{ name: 'any_name', email: 'any@email.com' }]
+    const sut = new InMemoryUserRepository(users)
+    const userExist = await sut.exists(users[0])
+    expect(userExist).toBeTruthy()
+  })
 })
