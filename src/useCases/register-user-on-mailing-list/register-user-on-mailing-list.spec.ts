@@ -1,8 +1,8 @@
-import { UserData } from "./user-data"
+// import { UserData } from '../../entities/user-data'
 
 describe('Register user on mailing list use case', () => {
   test('should add user with complete data to mailing list', async () => {
-    const users: UserData[] = []
+    // const users: UserData[] = []
     /*
     const repo: UserRepository = new InMemoryUserRepository(users)
     const useCase: RegisterUserOnMailingList = new RegisterUserOnMailingList(repo)
