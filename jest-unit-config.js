@@ -1,3 +1,3 @@
-import jestConfig from './jest.config'
-jestConfig.testMatch = ['**/*.spec.ts']
-export default jestConfig
+const config = require('./jest.config')
+config.testMatch = ['**/*.spec.ts']
+module.exports = config
