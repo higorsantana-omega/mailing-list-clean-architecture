@@ -6,7 +6,7 @@ import { UserRepository } from '@/useCases/register-user-on-mailing-list/ports'
 import { RegisterUserController } from '@/web-controllers'
 import { MissingParamError } from '@/web-controllers/errors/missing-param-error'
 import { HttpRequest, HttpResponse } from '@/web-controllers/ports'
-import { InMemoryUserRepository } from '@test/useCases/register-user-on-mailing-list/repository'
+import { InMemoryUserRepository } from '@/useCases/register-user-on-mailing-list/repository'
 
 describe('Register user web controller', () => {
   const users: UserData[] = []
