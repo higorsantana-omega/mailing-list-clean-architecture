@@ -21,13 +21,11 @@ export class RegisterUserController {
       const userData: UserData = request.body
       const response = await this.usecase.perform(userData)
 
-      if (response.isRight()) {
-        return created(response.value)
-      }
-
       if (response.isLeft()) {
         return badRequest(response.value)
       }
+
+      return created(response.value)
     } catch (error) {
       return serverError(error)
     }
