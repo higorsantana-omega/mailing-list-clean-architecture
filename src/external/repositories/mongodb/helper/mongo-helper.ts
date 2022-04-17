@@ -6,12 +6,12 @@ export const MongoHelper = {
     this.client = await MongoClient.connect(uri)
   },
   async disconnect (): Promise<void> {
-    this.client.close()
+    await this.client.close()
   },
   getCollection (name: string): Collection {
     return this.client.db().collection(name)
   },
-  clearCollection (name: string): void {
-    this.client.db().collection(name).deleteMany({})
+  async clearCollection (name: string): Promise<void> {
+    await this.client.db().collection(name).deleteMany({})
   }
 }
