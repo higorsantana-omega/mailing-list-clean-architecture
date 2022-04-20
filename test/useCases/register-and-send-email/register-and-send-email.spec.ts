@@ -47,7 +47,6 @@ describe('Register and send email to user', () => {
     const users: UserData[] = []
     const repo: UserRepository = new InMemoryUserRepository(users)
     const registerUseCase: RegisterUserOnMailingList = new RegisterUserOnMailingList(repo)
-
     const mailServiceMock = new MailServiceMock()
     const sendEmailUseCase: SendEmail = new SendEmail(mailOptions, mailServiceMock)
     const registerAndSendEmailUseCase: RegisterAndSendEmail = new RegisterAndSendEmail(registerUseCase, sendEmailUseCase)
