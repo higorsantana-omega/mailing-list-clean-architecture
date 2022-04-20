@@ -1,4 +1,5 @@
-import { Either, left, Left, Right, right } from '@/shared'
+import { User } from '@/entities'
+import { Either, left, right } from '@/shared'
 import { MailServiceError } from '@/useCases/errors/mail-service-error'
 import { EmailOptions, EmailService } from '@/useCases/send-email/ports/email-service'
 import { SendEmail } from '@/useCases/send-email/send-email'
@@ -45,22 +46,16 @@ describe('Send email to user', () => {
   test('should email user with valid name and email address', async () => {
     const mailServiceStub = new MailServiceStub()
     const useCase = new SendEmail(mailOptions, mailServiceStub)
-    const response = await useCase.perform({ name: toName, email: toEmail })
-    expect(response).toBeInstanceOf(Right)
-  })
-
-  test('should not try to email with invalid email address', async () => {
-    const mailServiceStub = new MailServiceStub()
-    const useCase = new SendEmail(mailOptions, mailServiceStub)
-    const invalidEmail = 'invalid_email'
-    const response = await useCase.perform({ name: toName, email: invalidEmail })
-    expect(response).toBeInstanceOf(Left)
+    const user = User.create({ name: toName, email: toEmail }).value as User
+    const response = (await useCase.perform(user)).value as EmailOptions
+    expect(response.to).toEqual('any_name < any_mail@mail.com >')
   })
 
   test('should return error when email service fails', async () => {
     const mailServiceStub = new MailServiceErrorStub()
     const useCase = new SendEmail(mailOptions, mailServiceStub)
-    const response = await useCase.perform({ name: toName, email: toEmail })
+    const user = User.create({ name: toName, email: toEmail }).value as User
+    const response = await useCase.perform(user)
     expect(response.value).toBeInstanceOf(MailServiceError)
   })
 })
