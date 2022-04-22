@@ -39,7 +39,7 @@ describe('Nodemailer mail service adapter', () => {
     nodemailer.createTransport.mockClear()
   })
 
-  test('should return ok f email is sent', async () => {
+  test('should return ok if email is sent', async () => {
     const nodemailer = new NodemailerEmailService()
     const result = await nodemailer.send(mailOptions)
     expect(result.value).toEqual(mailOptions)
