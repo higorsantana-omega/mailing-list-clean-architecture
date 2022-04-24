@@ -2,7 +2,7 @@ import { EmailOptions } from '@/useCases/send-email/ports/email-service'
 
 const attachment = [{
   filename: 'text.txt',
-  path: '../../resources/text.txt'
+  path: 'https://picsum.photos/200'
 }]
 
 export default function getEmailOptions (): EmailOptions {
