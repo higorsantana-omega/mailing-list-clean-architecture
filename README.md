@@ -4,6 +4,9 @@
 <p align="center"><img src=".github/assets/01.gif?raw=true"/></p>
 <p align="center"><img src=".github/assets/02.gif?raw=true"/></p>
 
+# About Development
+
+
 # :construction_worker: Installation
 **You need to install [Node.js](https://nodejs.org/en/download/) first, then in order to clone the project via HTTPS, run this command:**
 
