@@ -5,7 +5,7 @@
 <p align="center"><img src=".github/assets/02.gif?raw=true"/></p>
 
 # About Development
-
+The project was developed using best practices with a robust set of tests. The project structure follows clean architecture standards.
 
 # :construction_worker: Installation
 **You need to install [Node.js](https://nodejs.org/en/download/) first, then in order to clone the project via HTTPS, run this command:**
